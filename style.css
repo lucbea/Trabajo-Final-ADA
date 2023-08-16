@@ -1,0 +1,411 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-width: 420px;
+    width: auto;
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+    display: flex;
+    flex-direction: column;
+}
+
+button{
+    all: unset;
+}
+
+h3 {
+    padding: 3px;
+}
+
+.encabezado {
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    color: white;
+}
+
+#titulo {
+    width: 200px;
+    height: 40px;
+    margin: auto 5px auto 35px;
+    font-size: 18px;
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+ul {
+    padding: 20px;
+    gap: 20px;
+    display: flex;
+    list-style-type: none;
+    font-size: 11px;
+}
+
+li:hover {
+    transform: scale(1.15);
+}
+
+.botonesGenero {
+    display: flex;
+    width: 344px;
+    justify-content: space-around;
+    align-items: center;
+    outline: none;
+    margin: auto 20px auto auto;
+}
+
+#todos, #mujeres, #hombres, #botonMas {
+    background-color: black;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 11px;
+}
+
+#cantPer {
+    margin: 0px 20px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+#tarjetas {
+    background-color: white;
+    display: grid;
+} 
+
+ /* estilo de l contenedor de TODOS los personajes que muestra */
+#total {
+    display: grid;
+    row-gap: 20px;
+    column-gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));    
+}
+
+/* estilo del contenedor de personaje */
+#contenidoPersonaje {
+    margin: 5px;
+    height: fit-content;
+    width: fit-content;
+    box-shadow: rgb(0 0 0) 0px 0px 4px 0px, rgb(0 0 0 / 12%) 0px 3px 1px -2px, rgb(0 0 0 / 20%) 0px 1px 5px 0px;
+}
+
+#contenidoPersonaje:hover {
+    box-shadow: 0px 3px 9px 4px rgb(101 93 93), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%);
+}
+
+/* resalto del nombre del personaje */
+#nomb {
+    margin: 5px 0px;
+    font-size: 15px;
+    font-weight: bold;
+    color: black;
+}
+ p{
+    margin: 4px 0px;  
+ }
+
+#imagenConEfecto{
+    display: flex;
+    position: relative;   
+}
+
+#imagen {
+    min-width: 303px;
+    overflow: hidden;
+    background-color: rgb(215, 215, 230);
+}
+
+img{
+    width:100%;
+    display: flex;
+    justify-content: flex-star;
+}
+
+img:hover {
+    transform: scale(1.22);
+}
+
+/* estilos del contenedor que tiene datos principales del personaje */
+#datos {
+    min-width: 303px;
+    width: 100%;
+    height: 500x;
+    background-color: rgb(215, 215, 230);
+    margin: 1px auto 1px auto;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border-color: rgb(8, 9, 9);
+}
+
+/*Estilos del espacio del botón Más info */
+#mas {
+    min-width: 303px;
+    width: auto;
+    height: 30px;
+    background-color: rgb(215, 215, 230);
+    margin: 1px auto 1px auto;
+    display: flex;
+    /* justify-content: space-around; */
+    align-items: center;
+}
+
+/* estilo de #botonMas --> muestra más datos del personaje*/
+[id^="botonMas"] { 
+    /* display: flex; */
+    margin: 1px auto 1px auto;
+    background-color: rgb(215, 215, 230);
+    color: black;
+    font-weight: bold;
+    /* border-bottom: 1px rgb(138, 92, 92); */
+    /* border: none; */
+    /* outline: none; */
+}
+
+[id^="botonMas"]:hover {
+    transform: scale(1.15);
+}
+ 
+/* estilo de otros datos accesorios del personaje */
+#otrosDatos {
+    opacity: 0;
+    margin: 3px 0px;
+    min-width: 280px;
+    background-color: rgb(215, 215, 230);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* estas clases ocultan/muestran los datos extras del personaje */
+.oculto {
+    opacity: 0;
+}
+.visible {
+    opacity: 1;
+}
+
+/*estilo del contenedor que tiene los botones de paginado */
+#distintasPaginas {
+    margin: 15px auto 3px auto;
+    width: auto;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* estilo de botones de paginado */
+#ini,
+#ant,
+#sig,
+#fin {
+    height: 30px;
+    width: 40px;
+    font-size: 25px;
+    margin: auto 8px;
+    padding: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    outline: none;
+    border-color: rgb(83, 79, 83);
+    border-radius: 5px;
+    box-shadow: 2px 3px 6px 0px rgb(0 0 0), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0);
+}
+
+/*Efectos de los botones de paginado  */
+#ini:disabled{
+    box-shadow: 0px 0px 0px 0.9px rgb(175 169 169), 0px 0px 0px 0px rgb(0 0 0 / 12%), 0px 0px 1px 0px rgb(177 168 168);
+}
+
+#ini:hover:not([disabled]) {
+    box-shadow: 0px 0px 0px 0px rgb(0 0 0), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0);
+}
+
+#ant:disabled{
+    box-shadow: 0px 0px 0px 0.9px rgb(175 169 169), 0px 0px 0px 0px rgb(0 0 0 / 12%), 0px 0px 1px 0px rgb(177 168 168);
+}
+
+#ant:hover:not([disabled]) {
+   box-shadow: 0px 0px 0px 0px rgb(0 0 0), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0);
+}
+
+#sig:disabled{
+    box-shadow: 0px 0px 0px 0.9px rgb(175 169 169), 0px 0px 0px 0px rgb(0 0 0 / 12%), 0px 0px 1px 0px rgb(177 168 168);
+}
+
+#sig:hover:not([disabled]) {
+    box-shadow: 0px 0px 0px 0px rgb(0 0 0), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0);
+}
+
+#fin:disabled{
+    box-shadow: 0px 0px 0px 0.9px rgb(175 169 169), 0px 0px 0px 0px rgb(0 0 0 / 12%), 0px 0px 1px 0px rgb(177 168 168);
+}
+
+#fin:hover:not([disabled]) {
+    box-shadow: 0px 0px 0px 0px rgb(0 0 0), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0);
+}
+
+/* estilo del botón para ingresar número de página */
+#pageInput{
+    margin: 0px 4px 15px;
+    padding:7px;
+    width:35px;
+}
+
+#infoPag{
+   margin: 13px 25px;
+   font-size: 14px;
+   font-weight: bold;
+}
+
+#otraInfoPag{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#ingresoPagina{
+    display:flex;
+    justify-content: center;
+}
+
+label{
+    margin: 6px 0px;
+    display:flex;
+    justify-content: center;
+ }
+
+ /*estilos footer*/
+.pie {
+    font-weight: 20px;
+    color: white;
+    background-color: black;
+    padding: 4px 30px;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 1px 7px 1px rgb(121 121 129), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 2);
+}
+
+#tituloPie{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    padding: 0px 0px 0px 100px;
+}
+
+.pie h4 {
+    display: flex;
+    padding: 3px 30px 3px 0px;
+    color: white;
+    font-size: 11px;
+}
+
+@media (max-width:514px) {
+    .encabezado {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #titulo {
+        margin: auto;
+        justify-content: center;
+        align-items: center;
+    }
+
+    ul {
+        padding: 5px;
+    }
+
+    .botonesGenero {
+        margin: auto;
+    }
+
+    #cantPer {
+        margin: 4px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #tarjetas {
+        display:flex;
+        justify-content: center;
+    }
+
+    #infoPag{
+        margin: 0px;
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+     }
+     
+    .pie {
+        margin: 3px;
+        height: 120px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #tituloPie{
+        display: flex;
+        padding:0px;
+    }
+    
+    .pie h4 {
+        display: flex;
+        padding: 3px;
+    }
+}
+
+@media (min-width:515px) and (max-width:635px) {
+    .encabezado {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #titulo {
+        margin: auto;
+        justify-content: center;
+        align-items: center;
+    }
+
+    ul {
+        padding: 5px;
+    }
+
+    .botonesGenero {
+        margin: auto;
+    }
+
+    #cantPer {
+        margin: 4px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    #tarjetas {
+        display:flex;
+        justify-content: center;
+    }
+}
